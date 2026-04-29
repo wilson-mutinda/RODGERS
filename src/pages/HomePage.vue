@@ -1,6 +1,33 @@
 <script setup lang="ts">
 import Footer from '@/components/Footer.vue';
 import Navbar from '@/components/Navbar.vue';
+import { onMounted, ref, type Ref } from 'vue';
+
+const years = ref(0)
+const cases = ref(0)
+const trust = ref(0)
+
+const animateValue = (refvar: Ref<number | string>, end: number, duration: number = 1500) => {
+  let start = 0
+  const increment = end / (duration / 16)
+
+  const counter = setInterval(() => {
+    start += increment
+    if (start >= end) {
+      refvar.value = end + (end === 10 ? '+' : '+')
+      clearInterval(counter)
+    } else {
+      refvar.value = Math.floor(start)
+    }
+  }, 16);
+}
+
+onMounted(() => {
+  animateValue(years, 10)
+  animateValue(cases, 500)
+  animateValue(trust, 100)
+})
+
 </script>
 
 <template>
@@ -18,19 +45,18 @@ import Navbar from '@/components/Navbar.vue';
         <!-- LEFT -->
         <div>
           <h1 class="text-3xl md:text-5xl font-bold leading-tight mb-6">
-            Trusted Legal Representation <br />
-            <span class="text-[#9A6829]">You Can Rely On</span>
+            Facing a Legal Issue? <br />
+            <span class="text-[#9A6829]">Get Expert Legal Help Today.</span>
           </h1>
 
           <p class="text-gray-600 mb-6 text-lg">
-            Rodgers Abdi & Company Advocates provides professional legal services
-            in criminal, civil, corporate, and family law across Kenya.
+            Trusted advocates in criminal, civil, corporate, and family law.
           </p>
 
           <div class="flex flex-wrap gap-4">
             <router-link to="/consultation"
               class="bg-[#9A6829] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#7c531f] transition">
-              Book Consultation
+              Get Legal Help Now
             </router-link>
 
             <router-link to="/practice-areas"
@@ -48,6 +74,31 @@ import Navbar from '@/components/Navbar.vue';
 
       </div>
     </section>
+
+    <!-- trust stats section -->
+     <section class="bg-white py-14 border-t border-gray-100">
+      <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
+
+        <!-- years of experience -->
+         <div class="">
+          <h3 class="text-4xl font-bold text-[#061c2a]">{{ years }}</h3>
+          <p class="text-gray-500 mt-2">Years Experience</p>
+         </div>
+
+         <!-- cases handled -->
+          <div class="">
+            <h3 class="text-4xl font-bold text-[#061c2a]">{{ cases }}</h3>
+            <p class="text-gray-500 mt-2">Cases Handled</p>
+          </div>
+
+          <!-- Trusted -->
+           <div class="">
+            <h3 class="text-4xl font-bold text-[#061c2a]">{{ trust }}</h3>
+            <p class="text-gray-500 mt-2">Trusted Across Kenya</p>
+           </div>
+
+      </div>
+     </section>
 
 
     <!-- PRACTICE AREAS (SOFT GRAY BACKGROUND) -->
@@ -104,6 +155,46 @@ import Navbar from '@/components/Navbar.vue';
           <router-link to="/about" class="text-[#9A6829] font-semibold">
             Learn More →
           </router-link>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="bg-[#F5F7FA] py-16">
+      <div class="max-w-7xl mx-auto px-4 lg:px-8 text-center">
+
+        <h2 class="text-3xl font-bold text-[#061C2A] mb-4">
+          What Our Clients Say
+        </h2>
+
+        <p class="text-gray-600 mb-10">
+          Trusted by clients across Kenya for reliable legal services.
+        </p>
+
+        <div class="grid md:grid-cols-3 gap-6 text-left">
+
+          <div class="bg-white p-6 rounded-xl shadow-sm">
+            <p class="text-gray-600 mb-4">
+              "Professional and highly responsive. They handled my case with great care and expertise."
+            </p>
+            <span class="text-sm font-semibold text-[#061C2A]">— Client A</span>
+          </div>
+
+          <div class="bg-white p-6 rounded-xl shadow-sm">
+            <p class="text-gray-600 mb-4">
+              "I felt supported throughout the entire legal process. Highly recommended."
+            </p>
+            <span class="text-sm font-semibold text-[#061C2A]">— Client B</span>
+          </div>
+
+          <div class="bg-white p-6 rounded-xl shadow-sm">
+            <p class="text-gray-600 mb-4">
+              "Reliable, transparent, and effective legal representation."
+            </p>
+            <span class="text-sm font-semibold text-[#061C2A]">— Client C</span>
+          </div>
+
         </div>
 
       </div>
