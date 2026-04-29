@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import Navbar from '@/components/Navbar.vue';
-import Footer from '@/components/Footer.vue';
+import Navbar from '@/components/Navbar.vue'
+import Footer from '@/components/Footer.vue'
 </script>
 
 <template>
   <div class="bg-white">
 
-    <!-- NAVBAR
-    <Navbar /> -->
+    <!-- NAVBAR -->
+    <!-- <Navbar /> -->
 
     <!-- HERO -->
     <section class="bg-white text-[#061C2A]">
@@ -18,8 +18,8 @@ import Footer from '@/components/Footer.vue';
         </h1>
 
         <p class="text-gray-600 max-w-3xl mx-auto text-lg">
-          Rodgers Abdi & Company Advocates is a trusted legal practice dedicated
-          to delivering professional, ethical, and client-focused legal solutions across Kenya.
+          Rodgers Abdi & Company Advocates is a trusted legal practice delivering
+          professional, ethical, and results-driven legal solutions across Kenya.
         </p>
 
       </div>
@@ -43,12 +43,57 @@ import Footer from '@/components/Footer.vue';
 
           <p class="text-gray-600 leading-relaxed">
             Over the years, we have built a reputation for delivering reliable
-            legal representation tailored to each client&apos;s unique needs.
+            legal representation tailored to each client's unique needs.
           </p>
         </div>
 
         <div>
           <img src="/rodgers-abdi-blue-bg.jpg" class="rounded-xl shadow-md" />
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- OUR STORY -->
+    <section class="bg-white py-16">
+      <div class="max-w-4xl mx-auto px-4 lg:px-8 text-center">
+
+        <h2 class="text-3xl font-bold text-[#061C2A] mb-6">
+          Our Story
+        </h2>
+
+        <p class="text-gray-600 leading-relaxed">
+          Founded with a commitment to justice and client-focused service,
+          Rodgers Abdi & Company Advocates has grown into a trusted legal partner
+          for individuals and businesses across Kenya. Our journey has been built
+          on integrity, dedication, and delivering real results for our clients.
+        </p>
+
+      </div>
+    </section>
+
+
+    <!-- LEAD ADVOCATE -->
+    <section class="bg-[#F5F7FA] py-16">
+      <div class="max-w-7xl mx-auto px-4 lg:px-8 grid md:grid-cols-2 gap-10 items-center">
+
+        <img src="/rodgers-abdi-blue-bg.jpg" class="rounded-xl shadow-md" />
+
+        <div>
+          <h2 class="text-3xl font-bold text-[#061C2A] mb-4">
+            Meet Our Lead Advocate
+          </h2>
+
+          <p class="text-gray-600 mb-4">
+            Rodgers Abdi is a dedicated legal professional with extensive experience
+            in criminal, civil, corporate, and family law.
+          </p>
+
+          <p class="text-gray-600">
+            Known for a client-first approach and strong courtroom advocacy,
+            he is committed to delivering reliable and effective legal solutions.
+          </p>
         </div>
 
       </div>
@@ -124,10 +169,10 @@ import Footer from '@/components/Footer.vue';
       </div>
     </section>
 
-    <!-- CTA (REFRESHED - NO NAVY CONFLICT) -->
+
+    <!-- CTA -->
     <section class="relative py-20 bg-gradient-to-r from-[#F5F7FA] to-white text-[#061C2A] text-center overflow-hidden">
 
-      <!-- subtle decorative glow -->
       <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_top,_#9A6829,_transparent_60%)]"></div>
 
       <div class="relative max-w-3xl mx-auto px-4">
@@ -144,7 +189,7 @@ import Footer from '@/components/Footer.vue';
 
           <router-link to="/consultation"
             class="bg-[#9A6829] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#7c531f] transition">
-            Book a Consultation
+            Speak to an Advocate Today
           </router-link>
 
           <router-link to="/contact"
