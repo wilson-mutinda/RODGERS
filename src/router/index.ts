@@ -6,6 +6,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
+import CriminalLaw from '@/pages/CriminalLaw.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -14,7 +15,8 @@ const router = createRouter({
     { path: '/about', name: 'about', component: AboutPage },
     { path: '/practice-areas', name: 'practice-areas', component: PracticeAreas },
 
-    { path: '/practice-areas/corporate', name: 'corporate-law', component: CorporateLaw }
+    { path: '/practice-areas/corporate', name: 'corporate-law', component: CorporateLaw },
+    { path: '/practice-areas/criminal', name: 'criminal-law', component: CriminalLaw }
   ],
 
   // scroll behavior
