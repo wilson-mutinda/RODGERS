@@ -11,7 +11,7 @@ import Footer from '@/components/Footer.vue'
 
     <!-- HERO -->
     <section class="bg-white text-[#061C2A]">
-      <div class="max-w-7xl mx-auto px-4 lg:px-8 py-20 text-center">
+      <div data-aos="zoom-in" class="max-w-7xl mx-auto px-4 lg:px-8 py-20 text-center">
 
         <h1 class="text-4xl md:text-5xl font-bold mb-4">
           About <span class="text-[#9A6829]">Our Firm</span>

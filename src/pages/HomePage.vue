@@ -162,7 +162,7 @@ onMounted(() => {
 
     <!-- TESTIMONIALS -->
     <section class="bg-[#F5F7FA] py-16">
-      <div class="max-w-7xl mx-auto px-4 lg:px-8 text-center">
+      <div data-aos="zoom-in" class="max-w-7xl mx-auto px-4 lg:px-8 text-center">
 
         <h2 class="text-3xl font-bold text-[#061C2A] mb-4">
           What Our Clients Say
