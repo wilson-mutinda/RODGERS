@@ -6,72 +6,115 @@ import Footer from '@/components/Footer.vue'
 <template>
   <div class="bg-white">
 
+    <!-- NAVBAR -->
     <!-- <Navbar /> -->
 
     <!-- HERO -->
     <section class="bg-white py-20 text-center">
       <h1 class="text-4xl font-bold text-[#061C2A] mb-4">
-        Our Practice Areas
+        Legal Services Tailored to Your Needs
       </h1>
       <p class="text-gray-600 max-w-2xl mx-auto">
-        We provide expert legal services across multiple areas of law,
-        ensuring tailored solutions for every client.
+        Whether you're facing a legal dispute, managing a business, or navigating family matters,
+        our experienced advocates provide practical and effective legal solutions.
       </p>
     </section>
 
-    <!-- SERVICES (PREMIUM VERSION) -->
-    <section class="bg-[#F5F7FA] py-20">
-        <div class="max-w-7xl mx-auto px-4 lg:px-8 text-center">
+    <!-- WHY CHOOSE US -->
+    <section class="bg-[#F5F7FA] py-16">
+      <div class="max-w-7xl mx-auto px-4 lg:px-8 text-center">
 
-            <h2 class="text-3xl md:text-4xl font-bold text-[#061C2A] mb-4">
-            Our Legal Services
-            </h2>
+        <h2 class="text-3xl font-bold text-[#061C2A] mb-10">
+          Why Choose Our Firm
+        </h2>
 
-            <p class="text-gray-600 mb-12 max-w-2xl mx-auto">
-            We provide comprehensive legal representation across key areas of law,
-            ensuring every client receives expert guidance and dedicated support.
+        <div class="grid md:grid-cols-3 gap-8">
+
+          <div class="info-card">
+            <h3 class="font-semibold text-lg mb-2">Experienced Advocates</h3>
+            <p class="text-gray-600 text-sm">
+              Years of hands-on experience across multiple areas of law.
             </p>
+          </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="info-card">
+            <h3 class="font-semibold text-lg mb-2">Client-Focused Approach</h3>
+            <p class="text-gray-600 text-sm">
+              Every case is handled with personalized attention and care.
+            </p>
+          </div>
 
-            <!-- CARD -->
-            <router-link to="/practice-areas/criminal" class="service-card group">
-                <div class="icon">⚖️</div>
-                <h3>Criminal Law</h3>
-                <p>Strong legal defense and representation in criminal matters.</p>
-                <span class="link">Learn More →</span>
-            </router-link>
-
-            <router-link to="/practice-areas/civil" class="service-card group">
-                <div class="icon">📜</div>
-                <h3>Civil Law</h3>
-                <p>Resolving disputes with professionalism and legal precision.</p>
-                <span class="link">Learn More →</span>
-            </router-link>
-
-            <router-link to="/practice-areas/corporate" class="service-card group">
-                <div class="icon">🏢</div>
-                <h3>Corporate Law</h3>
-                <p>Legal solutions tailored for businesses and organizations.</p>
-                <span class="link">Learn More →</span>
-            </router-link>
-
-            <router-link to="/practice-areas/family" class="service-card group">
-                <div class="icon">👨‍👩‍👧</div>
-                <h3>Family Law</h3>
-                <p>Guidance and representation in sensitive family matters.</p>
-                <span class="link">Learn More →</span>
-            </router-link>
-
-            </div>
+          <div class="info-card">
+            <h3 class="font-semibold text-lg mb-2">Proven Results</h3>
+            <p class="text-gray-600 text-sm">
+              A strong track record of successful legal outcomes.
+            </p>
+          </div>
 
         </div>
+
+      </div>
     </section>
 
-    <!-- CTA (REFRESHED - NO NAVY CONFLICT) -->
+    <!-- SERVICES -->
+    <section class="bg-white py-20">
+      <div class="max-w-7xl mx-auto px-4 lg:px-8 text-center">
+
+        <h2 class="text-3xl md:text-4xl font-bold text-[#061C2A] mb-4">
+          Our Legal Services
+        </h2>
+
+        <p class="text-gray-600 mb-12 max-w-2xl mx-auto">
+          Explore our core areas of practice and find the legal support that suits your needs.
+        </p>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+          <!-- CARD -->
+          <router-link to="/practice-areas/criminal" class="service-card group">
+            <div class="icon">⚖️</div>
+            <h3>Criminal Law</h3>
+            <p>Defending your rights with strong representation in criminal cases.</p>
+            <span class="link">Learn More →</span>
+          </router-link>
+
+          <router-link to="/practice-areas/civil" class="service-card group">
+            <div class="icon">📜</div>
+            <h3>Civil Law</h3>
+            <p>Resolving disputes efficiently through skilled legal advocacy.</p>
+            <span class="link">Learn More →</span>
+          </router-link>
+
+          <router-link to="/practice-areas/corporate" class="service-card group">
+            <div class="icon">🏢</div>
+            <h3>Corporate Law</h3>
+            <p>Helping businesses navigate legal challenges with confidence.</p>
+            <span class="link">Learn More →</span>
+          </router-link>
+
+          <router-link to="/practice-areas/family" class="service-card group">
+            <div class="icon">👨‍👩‍👧</div>
+            <h3>Family Law</h3>
+            <p>Supporting you through sensitive family matters with care and discretion.</p>
+            <span class="link">Learn More →</span>
+          </router-link>
+
+        </div>
+
+        <!-- MINI CTA -->
+        <div class="mt-12">
+          <router-link to="/consultation"
+            class="bg-[#061C2A] text-white px-6 py-3 rounded-full font-semibold hover:bg-black transition">
+            Not Sure Where to Start? Speak to an Advocate →
+          </router-link>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
     <section class="relative py-20 bg-gradient-to-r from-[#F5F7FA] to-white text-[#061C2A] text-center overflow-hidden">
 
-      <!-- subtle decorative glow -->
       <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_top,_#9A6829,_transparent_60%)]"></div>
 
       <div class="relative max-w-3xl mx-auto px-4">
@@ -88,7 +131,7 @@ import Footer from '@/components/Footer.vue'
 
           <router-link to="/consultation"
             class="bg-[#9A6829] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#7c531f] transition">
-            Book a Consultation
+            Speak to an Advocate Today
           </router-link>
 
           <router-link to="/contact"
@@ -101,12 +144,20 @@ import Footer from '@/components/Footer.vue'
       </div>
     </section>
 
+    <!-- FOOTER -->
     <!-- <Footer /> -->
 
   </div>
 </template>
 
 <style scoped>
+.info-card {
+  background: white;
+  padding: 28px;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+}
+
 .service-card {
   background: white;
   padding: 30px 24px;
@@ -145,7 +196,7 @@ import Footer from '@/components/Footer.vue'
 
 /* HOVER EFFECT */
 .service-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-8px) scale(1.02);
   background: #061C2A;
   border-color: transparent;
 }
