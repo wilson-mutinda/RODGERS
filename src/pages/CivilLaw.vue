@@ -32,13 +32,14 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="bg-white dark:bg-[#061C2A] text-[#061C2A] dark:text-white transition-colors duration-300">
+  <div class="bg-white dark:bg-[#061C2A] text-[#061C2A] dark:text-white transition-all duration-300">
 
     <!-- HERO -->
     <section class="py-24 bg-white dark:bg-[#061C2A]">
       <div class="max-w-7xl mx-auto px-4 lg:px-8 grid md:grid-cols-2 gap-10 items-center">
 
-        <div>
+        <div data-aos="fade-right">
+
           <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">
             Civil Disputes? <br />
             <span class="text-[#9A6829]">We Help You Get Justice.</span>
@@ -49,6 +50,7 @@ onMounted(() => {
           </p>
 
           <div class="flex flex-wrap gap-4">
+
             <router-link
               to="/consultation"
               class="bg-[#9A6829] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#7c531f] transition"
@@ -62,42 +64,41 @@ onMounted(() => {
             >
               Talk to a Lawyer
             </router-link>
+
           </div>
+
         </div>
 
-        <div class="hidden md:block">
-          <img
-            src="/rodgers-abdi-blue-bg.jpg"
-            class="rounded-xl shadow-lg"
-          />
+        <div class="hidden md:block" data-aos="fade-left">
+          <img src="/rodgers-abdi-blue-bg.jpg" class="rounded-xl shadow-lg" />
         </div>
 
       </div>
     </section>
 
-    <!-- PAIN / SITUATIONS -->
-    <section class="bg-[#F5F7FA] dark:bg-[#0b2f45] py-16 transition-colors duration-300">
+    <!-- PAIN POINTS -->
+    <section class="py-16 bg-[#F5F7FA] dark:bg-[#0b2f45]">
       <div class="max-w-5xl mx-auto px-4 text-center">
 
-        <h2 class="text-3xl font-bold mb-6">
+        <h2 class="text-3xl font-bold mb-10" data-aos="fade-up">
           Common Civil Disputes We Handle
         </h2>
 
         <div class="grid md:grid-cols-2 gap-6 text-left">
 
-          <div class="bg-white dark:bg-[#0f2a3a] p-6 rounded-xl">
+          <div class="info-card" data-aos="fade-up">
             Contract disputes between individuals or businesses
           </div>
 
-          <div class="bg-white dark:bg-[#0f2a3a] p-6 rounded-xl">
+          <div class="info-card" data-aos="fade-up" data-aos-delay="100">
             Property ownership and land conflicts
           </div>
 
-          <div class="bg-white dark:bg-[#0f2a3a] p-6 rounded-xl">
+          <div class="info-card" data-aos="fade-up" data-aos-delay="200">
             Debt recovery and compensation claims
           </div>
 
-          <div class="bg-white dark:bg-[#0f2a3a] p-6 rounded-xl">
+          <div class="info-card" data-aos="fade-up" data-aos-delay="300">
             Negligence and personal injury cases
           </div>
 
@@ -107,21 +108,21 @@ onMounted(() => {
     </section>
 
     <!-- SERVICES -->
-    <section class="py-16">
+    <section class="py-16 bg-white dark:bg-[#061C2A]">
       <div class="max-w-7xl mx-auto px-4 text-center">
 
-        <h2 class="text-3xl font-bold mb-10">
+        <h2 class="text-3xl font-bold mb-10" data-aos="fade-up">
           Our Civil Law Services
         </h2>
 
         <div class="grid md:grid-cols-3 gap-6">
 
-          <div class="service-card">Contract Disputes</div>
-          <div class="service-card">Property & Land Cases</div>
-          <div class="service-card">Debt Recovery</div>
-          <div class="service-card">Compensation Claims</div>
-          <div class="service-card">Negligence Cases</div>
-          <div class="service-card">Legal Advisory</div>
+          <div class="service-card" data-aos="zoom-in">Contract Disputes</div>
+          <div class="service-card" data-aos="zoom-in" data-aos-delay="100">Property & Land Cases</div>
+          <div class="service-card" data-aos="zoom-in" data-aos-delay="200">Debt Recovery</div>
+          <div class="service-card" data-aos="zoom-in" data-aos-delay="300">Compensation Claims</div>
+          <div class="service-card" data-aos="zoom-in" data-aos-delay="400">Negligence Cases</div>
+          <div class="service-card" data-aos="zoom-in" data-aos-delay="500">Legal Advisory</div>
 
         </div>
 
@@ -129,19 +130,19 @@ onMounted(() => {
     </section>
 
     <!-- PROCESS -->
-    <section class="bg-[#F5F7FA] dark:bg-[#0b2f45] py-16">
+    <section class="py-16 bg-[#F5F7FA] dark:bg-[#0b2f45]">
       <div class="max-w-6xl mx-auto px-4 text-center">
 
-        <h2 class="text-3xl font-bold mb-10">
+        <h2 class="text-3xl font-bold mb-10" data-aos="fade-up">
           How We Handle Civil Cases
         </h2>
 
         <div class="grid md:grid-cols-4 gap-6">
 
-          <div class="step-card">1. Case Consultation</div>
-          <div class="step-card">2. Evidence Review</div>
-          <div class="step-card">3. Legal Strategy</div>
-          <div class="step-card">4. Resolution / Court Action</div>
+          <div class="step-card" data-aos="fade-up">1. Consultation</div>
+          <div class="step-card" data-aos="fade-up" data-aos-delay="100">2. Evidence Review</div>
+          <div class="step-card" data-aos="fade-up" data-aos-delay="200">3. Strategy</div>
+          <div class="step-card" data-aos="fade-up" data-aos-delay="300">4. Resolution</div>
 
         </div>
 
@@ -152,12 +153,12 @@ onMounted(() => {
     <section class="py-14 border-t border-gray-200 dark:border-gray-700">
       <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-10 text-center">
 
-        <div>
+        <div data-aos="zoom-in">
           <h3 class="text-4xl font-bold">{{ cases }}</h3>
           <p class="text-gray-500 dark:text-gray-400 mt-2">Civil Cases Handled</p>
         </div>
 
-        <div>
+        <div data-aos="zoom-in">
           <h3 class="text-4xl font-bold">{{ success }}%</h3>
           <p class="text-gray-500 dark:text-gray-400 mt-2">Favorable Outcomes</p>
         </div>
@@ -168,32 +169,35 @@ onMounted(() => {
     <!-- CTA -->
     <section class="py-20 text-center bg-gradient-to-r from-[#F5F7FA] to-white dark:from-[#061C2A] dark:to-[#0b2f45]">
 
-      <h2 class="text-3xl md:text-4xl font-bold mb-4">
-        Need Help Resolving a Dispute?
-      </h2>
+      <div class="max-w-3xl mx-auto px-4">
 
-      <p class="text-gray-600 dark:text-gray-300 mb-8">
-        Get professional legal support for your civil matter today.
-      </p>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4" data-aos="fade-up">
+          Need Help Resolving a Dispute?
+        </h2>
 
-      <div class="flex justify-center gap-4 flex-wrap">
+        <p class="text-gray-600 dark:text-gray-300 mb-8" data-aos="fade-up" data-aos-delay="100">
+          Get professional legal support for your civil matter today.
+        </p>
 
-        <router-link
-          to="/consultation"
-          class="bg-[#9A6829] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#7c531f] transition"
-        >
-          Start Your Case
-        </router-link>
+        <div class="flex justify-center gap-4 flex-wrap" data-aos="fade-up" data-aos-delay="200">
 
-        <router-link
-          to="/contact"
-          class="border border-[#9A6829] text-[#9A6829] hover:bg-[#9A6829] hover:text-white px-6 py-3 rounded-full font-semibold transition"
-        >
-          Contact Us
-        </router-link>
+          <router-link
+            to="/consultation"
+            class="bg-[#9A6829] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#7c531f] transition"
+          >
+            Start Your Case
+          </router-link>
+
+          <router-link
+            to="/contact"
+            class="border border-[#9A6829] text-[#9A6829] hover:bg-[#9A6829] hover:text-white px-6 py-3 rounded-full font-semibold transition"
+          >
+            Contact Us
+          </router-link>
+
+        </div>
 
       </div>
-
     </section>
 
   </div>
@@ -216,8 +220,6 @@ onMounted(() => {
 
 .service-card:hover {
   transform: translateY(-6px);
-  background: #061C2A;
-  color: white;
 }
 
 .step-card {
@@ -228,6 +230,16 @@ onMounted(() => {
 }
 
 .dark .step-card {
+  background: #0f2a3a;
+}
+
+.info-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.dark .info-card {
   background: #0f2a3a;
 }
 </style>

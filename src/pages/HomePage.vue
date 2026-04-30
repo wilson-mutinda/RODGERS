@@ -1,25 +1,27 @@
 <script setup lang="ts">
-import Footer from '@/components/Footer.vue';
-import Navbar from '@/components/Navbar.vue';
-import { onMounted, ref, type Ref } from 'vue';
+import { onMounted, ref, type Ref } from 'vue'
 
 const years = ref(0)
 const cases = ref(0)
 const trust = ref(0)
 
-const animateValue = (refvar: Ref<number | string>, end: number, duration: number = 1500) => {
+const animateValue = (
+  refvar: Ref<number | string>,
+  end: number,
+  duration: number = 1500
+) => {
   let start = 0
   const increment = end / (duration / 16)
 
   const counter = setInterval(() => {
     start += increment
     if (start >= end) {
-      refvar.value = end + (end === 10 ? '+' : '+')
+      refvar.value = end + '+'
       clearInterval(counter)
     } else {
       refvar.value = Math.floor(start)
     }
-  }, 16);
+  }, 16)
 }
 
 onMounted(() => {
@@ -27,105 +29,116 @@ onMounted(() => {
   animateValue(cases, 500)
   animateValue(trust, 100)
 })
-
 </script>
 
 <template>
-  <div class="bg-white pt-10">
+  <div class="bg-white dark:bg-[#061C2A] text-[#061C2A] dark:text-white transition-colors duration-300">
 
-    <!-- NAVBAR -->
-    <!-- <section>
-      <Navbar />
-    </section> -->
+    <!-- HERO -->
+    <section class="py-24">
+      <div class="max-w-7xl mx-auto px-4 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
 
-    <!-- HERO (NOW WHITE FOR PREMIUM FEEL) -->
-    <section class="bg-white text-[#061C2A]">
-      <div class="max-w-7xl mx-auto px-4 lg:px-8 py-20 grid md:grid-cols-2 gap-10 items-center">
+        <!-- TEXT -->
+        <div data-aos="fade-right">
 
-        <!-- LEFT -->
-        <div>
-          <h1 class="text-3xl md:text-5xl font-bold leading-tight mb-6">
-            Facing a Legal Issue? <br />
-            <span class="text-[#9A6829]">Get Expert Legal Help Today.</span>
+          <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">
+            Facing a Legal Problem? <br />
+            <span class="text-[#9A6829]">We Defend, Protect & Win for You.</span>
           </h1>
 
-          <p class="text-gray-600 mb-6 text-lg">
-            Trusted advocates in criminal, civil, corporate, and family law.
+          <p class="text-gray-600 dark:text-gray-300 text-lg mb-6">
+            Criminal charges, civil disputes, business conflicts, or family matters —
+            get fast, professional legal help from trusted advocates in Kenya.
           </p>
 
           <div class="flex flex-wrap gap-4">
-            <router-link to="/consultation"
-              class="bg-[#9A6829] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#7c531f] transition">
+            <router-link
+              to="/consultation"
+              class="bg-[#9A6829] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#7c531f] transition"
+            >
               Get Legal Help Now
             </router-link>
 
-            <router-link to="/practice-areas"
-              class="border border-[#9A6829] text-[#9A6829] px-6 py-3 rounded-full font-semibold hover:bg-[#9A6829] hover:text-white transition">
-              Our Services
+            <router-link
+              to="/practice-areas"
+              class="border border-[#9A6829] text-[#9A6829] px-6 py-3 rounded-full font-semibold hover:bg-[#9A6829] hover:text-white transition"
+            >
+              View Services
             </router-link>
           </div>
+
         </div>
 
-        <!-- RIGHT IMAGE -->
-        <div class="hidden md:block">
-          <img src="/rodgers-abdi-blue-bg.jpg"
-            class="rounded-xl shadow-lg" />
+        <!-- IMAGE -->
+        <div class="hidden md:block" data-aos="fade-left">
+          <img
+            src="/rodgers-abdi-blue-bg.jpg"
+            class="rounded-xl shadow-lg"
+          />
         </div>
 
       </div>
     </section>
 
-    <!-- trust stats section -->
-     <section class="bg-white py-14 border-t border-gray-100">
+    <!-- TRUST STRIP -->
+    <section class="py-12 border-t border-gray-100 dark:border-gray-700">
       <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
 
-        <!-- years of experience -->
-         <div class="">
-          <h3 class="text-4xl font-bold text-[#061c2a]">{{ years }}</h3>
-          <p class="text-gray-500 mt-2">Years Experience</p>
-         </div>
+        <div data-aos="zoom-in">
+          <h3 class="text-4xl font-bold">{{ years }}</h3>
+          <p class="text-gray-500 dark:text-gray-400 mt-2">Years Experience</p>
+        </div>
 
-         <!-- cases handled -->
-          <div class="">
-            <h3 class="text-4xl font-bold text-[#061c2a]">{{ cases }}</h3>
-            <p class="text-gray-500 mt-2">Cases Handled</p>
-          </div>
+        <div data-aos="zoom-in" data-aos-delay="100">
+          <h3 class="text-4xl font-bold">{{ cases }}</h3>
+          <p class="text-gray-500 dark:text-gray-400 mt-2">Cases Handled</p>
+        </div>
 
-          <!-- Trusted -->
-           <div class="">
-            <h3 class="text-4xl font-bold text-[#061c2a]">{{ trust }}</h3>
-            <p class="text-gray-500 mt-2">Trusted Across Kenya</p>
-           </div>
+        <div data-aos="zoom-in" data-aos-delay="200">
+          <h3 class="text-4xl font-bold">{{ trust }}</h3>
+          <p class="text-gray-500 dark:text-gray-400 mt-2">Clients Trusted Across Kenya</p>
+        </div>
 
       </div>
-     </section>
+    </section>
 
+    <!-- LEGAL PROBLEMS WE SOLVE -->
+    <section class="bg-[#F5F7FA] dark:bg-[#0b2f45] py-16 transition-colors duration-300">
 
-    <!-- PRACTICE AREAS (SOFT GRAY BACKGROUND) -->
-    <section class="bg-[#F5F7FA] py-16">
-      <div class="max-w-7xl mx-auto px-4 lg:px-8 text-center">
+      <div class="max-w-7xl mx-auto px-4 text-center">
 
-        <h2 class="text-3xl font-bold text-[#061C2A] mb-4">
-          Practice Areas
+        <h2 class="text-3xl font-bold mb-4" data-aos="fade-up">
+          Legal Problems We Solve
         </h2>
 
-        <p class="text-gray-600 mb-10">
-          We offer a wide range of legal services tailored to meet your needs.
+        <p class="text-gray-600 dark:text-gray-300 mb-10" data-aos="fade-up">
+          We don&apos;t just offer legal services — we solve real-life legal emergencies.
         </p>
 
         <div class="grid md:grid-cols-4 gap-6">
 
-          <router-link to="/practice-areas/criminal" class="practice-card">
-            Criminal Law
+          <router-link to="/practice-areas/criminal" class="service-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="practice-card">
+              Criminal Charges & Arrests
+            </div>
           </router-link>
-          <router-link to="/practice-areas/civil" class="practice-card">
-            Civil Law
+
+          <router-link to="/practice-areas/civil" class="service-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="practice-card">
+              Civil Disputes & Compensation
+            </div>
           </router-link>
-          <router-link to="/practice-areas/corporate" class="practice-card">
-            Corporate Law
+
+          <router-link to="/practice-areas/corporate" class="service-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="practice-card">
+              Business & Contract Issues
+            </div>
           </router-link>
-          <router-link to="/practice-areas/family" class="practice-card">
-            Family Law
+
+          <router-link to="/practice-areas/family" class="service-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="practice-card">
+              Family & Inheritance Matters
+            </div>
           </router-link>
 
         </div>
@@ -133,66 +146,56 @@ onMounted(() => {
       </div>
     </section>
 
-
-    <!-- ABOUT (WHITE AGAIN FOR CLEAN FLOW) -->
-    <section class="bg-white py-16">
+    <!-- ABOUT SHORT AUTHORITY -->
+    <section class="py-16">
       <div class="max-w-7xl mx-auto px-4 lg:px-8 grid md:grid-cols-2 gap-10 items-center">
 
-        <img src="/rodgers-abdi-blue-bg.jpg"
-          class="rounded-xl shadow-md" />
+        <img src="/rodgers-abdi-blue-bg.jpg" class="rounded-xl shadow-md" data-aos="fade-right" />
 
-        <div>
-          <h2 class="text-3xl font-bold text-[#061C2A] mb-4">
-            About Our Firm
+        <div data-aos="fade-left">
+
+          <h2 class="text-3xl font-bold mb-4">
+            Why Clients Trust Us
           </h2>
 
-          <p class="text-gray-600 mb-6">
-            With years of legal expertise, Rodgers Abdi & Company Advocates
-            is committed to delivering reliable, ethical, and client-focused
-            legal solutions.
+          <p class="text-gray-600 dark:text-gray-300 mb-6">
+            We combine legal expertise with a client-first approach.
+            Every case is handled with urgency, strategy, and confidentiality.
           </p>
 
-          <router-link to="/about" class="text-[#9A6829] font-semibold">
-            Learn More →
+          <router-link
+            to="/about"
+            class="text-[#9A6829] font-semibold"
+          >
+            Learn More About Us →
           </router-link>
+
         </div>
 
       </div>
     </section>
 
     <!-- TESTIMONIALS -->
-    <section class="bg-[#F5F7FA] py-16">
-      <div data-aos="zoom-in" class="max-w-7xl mx-auto px-4 lg:px-8 text-center">
+    <section class="bg-[#F5F7FA] dark:bg-[#0b2f45] py-16">
 
-        <h2 class="text-3xl font-bold text-[#061C2A] mb-4">
-          What Our Clients Say
+      <div class="max-w-7xl mx-auto px-4 text-center">
+
+        <h2 class="text-3xl font-bold mb-10" data-aos="fade-up">
+          What Clients Say
         </h2>
-
-        <p class="text-gray-600 mb-10">
-          Trusted by clients across Kenya for reliable legal services.
-        </p>
 
         <div class="grid md:grid-cols-3 gap-6 text-left">
 
-          <div class="bg-white p-6 rounded-xl shadow-sm">
-            <p class="text-gray-600 mb-4">
-              "Professional and highly responsive. They handled my case with great care and expertise."
-            </p>
-            <span class="text-sm font-semibold text-[#061C2A]">— Client A</span>
+          <div class="bg-white dark:bg-[#0f2a3a] p-6 rounded-xl" data-aos="fade-up">
+            "Fast response and excellent legal representation."
           </div>
 
-          <div class="bg-white p-6 rounded-xl shadow-sm">
-            <p class="text-gray-600 mb-4">
-              "I felt supported throughout the entire legal process. Highly recommended."
-            </p>
-            <span class="text-sm font-semibold text-[#061C2A]">— Client B</span>
+          <div class="bg-white dark:bg-[#0f2a3a] p-6 rounded-xl" data-aos="fade-up" data-aos-delay="100">
+            "They handled my case professionally and won."
           </div>
 
-          <div class="bg-white p-6 rounded-xl shadow-sm">
-            <p class="text-gray-600 mb-4">
-              "Reliable, transparent, and effective legal representation."
-            </p>
-            <span class="text-sm font-semibold text-[#061C2A]">— Client C</span>
+          <div class="bg-white dark:bg-[#0f2a3a] p-6 rounded-xl" data-aos="fade-up" data-aos-delay="200">
+            "Reliable and very trustworthy advocates."
           </div>
 
         </div>
@@ -200,58 +203,46 @@ onMounted(() => {
       </div>
     </section>
 
+    <!-- FINAL CTA -->
+    <section class="py-20 text-center bg-gradient-to-r from-[#F5F7FA] to-white dark:from-[#061C2A] dark:to-[#0b2f45]">
 
-    <!-- CTA (REFRESHED - NO NAVY CONFLICT) -->
-    <section class="relative py-20 bg-gradient-to-r from-[#F5F7FA] to-white text-[#061C2A] text-center overflow-hidden">
-
-      <!-- subtle decorative glow -->
-      <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_top,_#9A6829,_transparent_60%)]"></div>
-
-      <div class="relative max-w-3xl mx-auto px-4">
+      <div data-aos="zoom-in">
 
         <h2 class="text-3xl md:text-4xl font-bold mb-4">
-          Need Legal Assistance?
+          Need Legal Help Right Now?
         </h2>
 
-        <p class="text-gray-600 mb-8 text-lg">
-          Get professional legal support from a trusted advocate today.
+        <p class="text-gray-600 dark:text-gray-300 mb-8">
+          Don&apos;t wait until it&apos;s too late — speak to an advocate today.
         </p>
 
-        <div class="flex justify-center gap-4 flex-wrap">
-
-          <router-link to="/consultation"
-            class="bg-[#9A6829] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#7c531f] transition">
-            Book a Consultation
-          </router-link>
-
-          <router-link to="/contact"
-            class="border border-[#9A6829] text-[#9A6829] px-6 py-3 rounded-full font-semibold hover:bg-[#9A6829] hover:text-white transition">
-            Contact Us
-          </router-link>
-
-        </div>
+        <router-link
+          to="/consultation"
+          class="bg-[#9A6829] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#7c531f] transition"
+        >
+          Book Consultation
+        </router-link>
 
       </div>
-    </section>
 
-    <!-- FOOTER -->
-    <!-- <section>
-      <Footer />
-    </section> -->
+    </section>
 
   </div>
 </template>
-
 
 <style scoped>
 .practice-card {
   background: white;
   border: 1px solid #e5e7eb;
-  padding: 28px;
+  padding: 26px;
   border-radius: 14px;
   font-weight: 600;
-  color: #061C2A;
-  transition: 0.3s ease;
+  transition: 0.3s;
+}
+
+.dark .practice-card {
+  background: #0f2a3a;
+  border-color: #1f3a4a;
 }
 
 .practice-card:hover {

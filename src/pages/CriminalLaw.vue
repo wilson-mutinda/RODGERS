@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import Navbar from '@/components/Navbar.vue'
-import Footer from '@/components/Footer.vue'
 import { onMounted, ref, type Ref } from 'vue'
 
 const cases = ref(0)
@@ -32,21 +30,22 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="bg-white dark:bg-[#061C2A] text-[#061C2A] dark:text-white transition-colors duration-300">
+  <div class="transition-colors duration-300 bg-white dark:bg-[#061C2A] text-[#061C2A] dark:text-white">
 
     <!-- HERO -->
     <section class="py-24 bg-white dark:bg-[#061C2A]">
-      <div class="max-w-7xl mx-auto px-4 lg:px-8 grid md:grid-cols-2 gap-10 items-center">
+      <div class="max-w-7xl mx-auto px-4 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
 
         <!-- TEXT -->
-        <div>
+        <div data-aos="fade-up">
           <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">
             Facing Criminal Charges? <br />
             <span class="text-[#9A6829]">Get Immediate Legal Defense.</span>
           </h1>
 
-          <p class="text-gray-600 dark:text-gray-300 text-lg mb-6">
-            We provide strong legal representation in criminal cases across Kenya.
+          <p class="text-gray-600 dark:text-gray-300 text-lg mb-8">
+            We provide strong legal representation in criminal cases across Kenya,
+            ensuring your rights are fully protected.
           </p>
 
           <div class="flex flex-wrap gap-4">
@@ -67,39 +66,36 @@ onMounted(() => {
         </div>
 
         <!-- IMAGE -->
-        <div class="hidden md:block">
-          <img
-            src="/rodgers-abdi-blue-bg.jpg"
-            class="rounded-xl shadow-lg"
-          />
+        <div class="hidden md:block" data-aos="zoom-in">
+          <img src="/rodgers-abdi-blue-bg.jpg" class="rounded-xl shadow-lg" />
         </div>
 
       </div>
     </section>
 
     <!-- PAIN POINTS -->
-    <section class="bg-[#F5F7FA] dark:bg-[#0b2f45] py-16 transition-colors duration-300">
+    <section class="py-16 bg-[#F5F7FA] dark:bg-[#0b2f45] transition-colors duration-300">
       <div class="max-w-5xl mx-auto px-4 text-center">
 
-        <h2 class="text-3xl font-bold mb-6">
+        <h2 class="text-3xl font-bold mb-10" data-aos="fade-up">
           Are You Facing Any of These?
         </h2>
 
         <div class="grid md:grid-cols-2 gap-6 text-left">
 
-          <div class="bg-white dark:bg-[#0f2a3a] p-6 rounded-xl">
+          <div data-aos="fade-up" class="bg-white dark:bg-[#0f2a3a] p-6 rounded-xl shadow-sm">
             Arrested or under investigation
           </div>
 
-          <div class="bg-white dark:bg-[#0f2a3a] p-6 rounded-xl">
+          <div data-aos="fade-up" class="bg-white dark:bg-[#0f2a3a] p-6 rounded-xl shadow-sm">
             Court summons or charges filed
           </div>
 
-          <div class="bg-white dark:bg-[#0f2a3a] p-6 rounded-xl">
+          <div data-aos="fade-up" class="bg-white dark:bg-[#0f2a3a] p-6 rounded-xl shadow-sm">
             Fraud, theft or assault allegations
           </div>
 
-          <div class="bg-white dark:bg-[#0f2a3a] p-6 rounded-xl">
+          <div data-aos="fade-up" class="bg-white dark:bg-[#0f2a3a] p-6 rounded-xl shadow-sm">
             Need urgent bail or legal advice
           </div>
 
@@ -109,57 +105,57 @@ onMounted(() => {
     </section>
 
     <!-- SERVICES -->
-    <section class="py-16">
+    <section class="py-20">
       <div class="max-w-7xl mx-auto px-4 text-center">
 
-        <h2 class="text-3xl font-bold mb-10">
+        <h2 class="text-3xl font-bold mb-10" data-aos="fade-up">
           Our Criminal Law Services
         </h2>
 
         <div class="grid md:grid-cols-3 gap-6">
 
-          <div class="service-card">Bail & Bond Applications</div>
-          <div class="service-card">Court Representation</div>
-          <div class="service-card">Criminal Defense</div>
-          <div class="service-card">Police Investigation Support</div>
-          <div class="service-card">Appeals & Legal Advice</div>
-          <div class="service-card">Emergency Legal Help</div>
+          <div class="service-card" data-aos="fade-up">Bail & Bond Applications</div>
+          <div class="service-card" data-aos="fade-up">Court Representation</div>
+          <div class="service-card" data-aos="fade-up">Criminal Defense</div>
+          <div class="service-card" data-aos="fade-up">Police Investigation Support</div>
+          <div class="service-card" data-aos="fade-up">Appeals & Legal Advice</div>
+          <div class="service-card" data-aos="fade-up">Emergency Legal Help</div>
 
         </div>
 
       </div>
     </section>
 
-    <!-- HOW WE WORK -->
-    <section class="bg-[#F5F7FA] dark:bg-[#0b2f45] py-16">
+    <!-- PROCESS -->
+    <section class="py-16 bg-[#F5F7FA] dark:bg-[#0b2f45]">
       <div class="max-w-6xl mx-auto px-4 text-center">
 
-        <h2 class="text-3xl font-bold mb-10">
+        <h2 class="text-3xl font-bold mb-10" data-aos="fade-up">
           How We Work
         </h2>
 
         <div class="grid md:grid-cols-4 gap-6">
 
-          <div class="step-card">1. Consultation</div>
-          <div class="step-card">2. Case Review</div>
-          <div class="step-card">3. Strategy</div>
-          <div class="step-card">4. Representation</div>
+          <div class="step-card" data-aos="zoom-in">1. Consultation</div>
+          <div class="step-card" data-aos="zoom-in">2. Case Review</div>
+          <div class="step-card" data-aos="zoom-in">3. Strategy</div>
+          <div class="step-card" data-aos="zoom-in">4. Representation</div>
 
         </div>
 
       </div>
     </section>
 
-    <!-- TRUST STATS -->
+    <!-- STATS -->
     <section class="py-14 border-t border-gray-200 dark:border-gray-700">
       <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-10 text-center">
 
-        <div>
+        <div data-aos="fade-up">
           <h3 class="text-4xl font-bold">{{ cases }}</h3>
           <p class="text-gray-500 dark:text-gray-400 mt-2">Cases Handled</p>
         </div>
 
-        <div>
+        <div data-aos="fade-up">
           <h3 class="text-4xl font-bold">{{ success }}%</h3>
           <p class="text-gray-500 dark:text-gray-400 mt-2">Success Rate Focus</p>
         </div>
@@ -170,15 +166,15 @@ onMounted(() => {
     <!-- CTA -->
     <section class="py-20 text-center bg-gradient-to-r from-[#F5F7FA] to-white dark:from-[#061C2A] dark:to-[#0b2f45]">
 
-      <h2 class="text-3xl md:text-4xl font-bold mb-4">
-        Don’t Face Criminal Charges Alone
+      <h2 class="text-3xl md:text-4xl font-bold mb-4" data-aos="fade-up">
+        Don&apos;t Face Criminal Charges Alone
       </h2>
 
-      <p class="text-gray-600 dark:text-gray-300 mb-8">
+      <p class="text-gray-600 dark:text-gray-300 mb-8" data-aos="fade-up">
         Get immediate legal support from experienced advocates.
       </p>
 
-      <div class="flex justify-center gap-4 flex-wrap">
+      <div class="flex justify-center gap-4 flex-wrap" data-aos="fade-up">
 
         <router-link
           to="/consultation"
@@ -227,6 +223,7 @@ onMounted(() => {
   padding: 20px;
   border-radius: 12px;
   font-weight: 600;
+  transition: 0.3s;
 }
 
 .dark .step-card {
