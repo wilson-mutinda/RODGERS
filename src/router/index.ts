@@ -12,6 +12,11 @@ import FamilyLaw from '@/pages/FamilyLaw.vue'
 import ContactPage from '@/pages/ContactPage.vue'
 import BlogPage from '@/pages/BlogPage.vue'
 import ConsultationPage from '@/pages/ConsultationPage.vue'
+import AdminLayout from '@/layouts/AdminLayout.vue'
+import Dashboard from '@/pages/admin/Dashboard.vue'
+import Consultations from '@/pages/admin/Consultations.vue'
+import Messages from '@/pages/admin/Messages.vue'
+import Blog from '@/pages/admin/Blog.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -27,7 +32,14 @@ const router = createRouter({
 
     { path: '/contact', name: 'contact', component: ContactPage },
     { path: '/blog', name: 'blog', component: BlogPage },
-    { path: '/consultation', name: 'consultation', component: ConsultationPage }
+    { path: '/consultation', name: 'consultation', component: ConsultationPage },
+
+    { path: '/admin', component: AdminLayout, children: [
+      { path: 'dashboard', component: Dashboard },
+      { path: 'consultations', component: Consultations },
+      { path: 'messages', component: Messages },
+      { path: 'blog', component: Blog }
+    ]}
   ],
 
   // scroll behavior
