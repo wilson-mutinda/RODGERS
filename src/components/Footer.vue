@@ -31,7 +31,7 @@
           <ul class="text-sm space-y-2">
             <li>P.O Box 50536 - 00200</li>
             <li>Nairobi, Kenya</li>
-            <li>Email: abdirodgers@gmail.com</li>
+            <li>Email: <a href="mailto:info@abdirodgers.co.ke">info@abdirodgers.co.ke</a></li>
             <li>Phone: 0706468026</li>
           </ul>
         </div>

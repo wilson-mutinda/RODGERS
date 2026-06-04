@@ -107,7 +107,7 @@ const submitForm = () => {
           <div class="info-card">
             <h3 class="font-semibold mb-2">✉️ Email</h3>
             <p class="text-gray-600 dark:text-gray-300">
-              abdirodgers@gmail.com
+              abdirodgers.co.ke
             </p>
           </div>
 

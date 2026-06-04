@@ -25,12 +25,12 @@ const toggleDark = () => {
     <div class="h-20 max-w-7xl mx-auto px-4 lg:px-8 flex items-center justify-between">
 
       <!-- LOGO -->
-      <div class="flex items-center gap-3">
+
+      <!-- router link for link and text -->
+       <router-link to="/" class="flex items-center gap-3">
         <img src="/rodgers-abdi-blue-bg.jpg" class="h-12 w-auto object-contain" />
-        <span class="hidden md:block text-sm tracking-wide text-[#9A6829] font-semibold">
-          Advocates
-        </span>
-      </div>
+        <span class="hidden md:block text-sm tracking-wide text-[#9a6829] font-semibold">Advocates</span>
+       </router-link>
 
       <!-- DESKTOP NAV -->
       <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
