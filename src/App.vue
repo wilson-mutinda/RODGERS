@@ -1,13 +1,17 @@
 <script setup lang="ts">
-import { RouterView } from 'vue-router';
+import { RouterView, useRoute } from 'vue-router';
 import Navbar from './components/Navbar.vue';
 import Footer from './components/Footer.vue';
+import { computed } from 'vue';
+
+const route = useRoute()
+const isAdminRoute = computed(() => route.path.startsWith('/admin'))
 
 </script>
 
 <template>
   <div>
-    <Navbar />
+    <Navbar v-if="!isAdminRoute" />
     <div class="h-16"></div>
 
     <!-- PAGE TRANSITION -->
@@ -17,7 +21,7 @@ import Footer from './components/Footer.vue';
       </transition>
     </router-view>
 
-    <Footer />
+    <Footer v-if="!isAdminRoute" />
   </div>
 </template>
 

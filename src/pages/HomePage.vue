@@ -1,34 +1,9 @@
 <script setup lang="ts">
-import { onMounted, ref, type Ref } from 'vue'
 
-const years = ref(0)
-const cases = ref(0)
-const trust = ref(0)
+const years = '-'
+const cases = '-'
+const trust = '-'
 
-const animateValue = (
-  refvar: Ref<number | string>,
-  end: number,
-  duration: number = 1500
-) => {
-  let start = 0
-  const increment = end / (duration / 16)
-
-  const counter = setInterval(() => {
-    start += increment
-    if (start >= end) {
-      refvar.value = end + '+'
-      clearInterval(counter)
-    } else {
-      refvar.value = Math.floor(start)
-    }
-  }, 16)
-}
-
-onMounted(() => {
-  animateValue(years, 10)
-  animateValue(cases, 500)
-  animateValue(trust, 100)
-})
 </script>
 
 <template>

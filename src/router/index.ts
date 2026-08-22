@@ -17,6 +17,10 @@ import Dashboard from '@/pages/admin/Dashboard.vue'
 import Consultations from '@/pages/admin/Consultations.vue'
 import Messages from '@/pages/admin/Messages.vue'
 import Blog from '@/pages/admin/Blog.vue'
+import Login from '@/pages/auth/Login.vue'
+import Register from '@/pages/auth/Register.vue'
+import { useAuthStore } from '@/stores/auth'
+import BlogPostDetail from '@/pages/BlogPostDetail.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -32,9 +36,15 @@ const router = createRouter({
 
     { path: '/contact', name: 'contact', component: ContactPage },
     { path: '/blog', name: 'blog', component: BlogPage },
+
+    { path: '/blog/:slug', name: 'blog-detail', component: BlogPostDetail },
+
     { path: '/consultation', name: 'consultation', component: ConsultationPage },
 
-    { path: '/admin', component: AdminLayout, children: [
+    { path: '/login', name: 'login', component: Login, meta: { guest: true } },
+    { path: '/register', name: 'register', component: Register, meta: { guest: true } },
+
+    { path: '/admin', component: AdminLayout, redirect: '/admin/dashboard', children: [
       { path: 'dashboard', component: Dashboard },
       { path: 'consultations', component: Consultations },
       { path: 'messages', component: Messages },
@@ -48,9 +58,16 @@ const router = createRouter({
   }
 })
 
-router.beforeEach((to, from, next) => {
-  NProgress.start()
-  next()
+router.beforeEach((to) => {
+  const auth = useAuthStore()
+  if (to.meta.requiresAuth && !auth.isAuthenticated) {
+    return '/login'
+  }
+  if ((to.path === '/login' || to.path === '/register') && auth.isAuthenticated) {
+    return '/admin/dashboard'
+  }
+  // no redirect
+  return true
 })
 
 router.afterEach(() => {

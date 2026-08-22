@@ -1,13 +1,11 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { useAppStore } from '@/stores/app'
+import type { InquiryNotification } from '@/stores/inquiry'
+import { useNotificationStore } from '@/stores/notification'
+import { ref, onMounted, watch, onBeforeMount, onBeforeUnmount } from 'vue'
 
 const sidebarOpen = ref(true)
 const isDark = ref(false)
-
-onMounted(() => {
-  isDark.value = localStorage.getItem('theme') === 'dark'
-  if (isDark.value) document.documentElement.classList.add('dark')
-})
 
 const toggleSidebar = () => sidebarOpen.value = !sidebarOpen.value
 
@@ -25,8 +23,54 @@ const toggleDark = () => {
 
 const logout = () => {
   localStorage.removeItem('token')
-  window.location.href = '/admin-login'
+  window.location.href = '/login'
 }
+
+const appStore = useAppStore()
+
+const triggerRefresh = appStore.triggerRefresh
+
+const notificationStore = useNotificationStore()
+
+const showNotifications = ref(false)
+
+const handleNotificationClick = async (notification: InquiryNotification) => {
+  await notificationStore.markAsRead(notification.id)
+  showNotifications.value = false
+}
+
+// Close dropdown when clicking outside (optional)
+const toggleDropdown = () => {
+  showNotifications.value = !showNotifications.value
+}
+
+// Load notifications on mount
+onMounted(async () => {
+  isDark.value = localStorage.getItem('theme') === 'dark'
+  if (isDark.value) document.documentElement.classList.add('dark')
+
+  await notificationStore.load()
+})
+
+// Watch refresh trigger
+watch(() => appStore.refreshTrigger,
+async () => {
+  await notificationStore.load()
+})
+
+// Auto -refresh every 30 seconds
+let pollTimer: number | null = null
+
+onMounted(() => {
+  pollTimer = window.setInterval(() => {
+    notificationStore.load()
+  }, 30000)
+})
+
+onBeforeUnmount(() => {
+  if (pollTimer) clearInterval(pollTimer)
+})
+
 </script>
 
 <template>
@@ -100,10 +144,48 @@ const logout = () => {
         <div class="flex items-center gap-4">
 
           <!-- NOTIFICATIONS -->
-          <button class="relative text-xl hover:scale-110 transition">
-            🔔
-            <span class="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full"></span>
-          </button>
+          <div class="relative">
+            <button
+             @click="toggleDropdown" 
+             class="relative text-xl hover:scale-110 transition"
+            >
+              🔔
+              <span
+               v-if="notificationStore.unreadCount > 0" 
+               class="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-xs flex items-center justify-center rounded-full">
+               {{ notificationStore.unreadCount }}
+              </span>
+            </button>
+
+            <!-- DropDown -->
+             <div
+              v-if="showNotifications" 
+              class="absolute right-0 mt-2 w-80 bg-white dark:bg-[#0f2a3a] rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden z-50"
+            >
+              <div class="p-3 border-b border-gray-200 dark:border-gray-700">
+                <strong>Notifications</strong>
+              </div>
+
+              <div v-if="notificationStore.unreadList.length === 0" class="p-4 text-center text-gray-500">
+                No new Notifications
+              </div>
+
+              <div v-else class="max-h-60 overflow-y-auto">
+                <div v-for="n in notificationStore.unreadList" :key="n.id" @click="handleNotificationClick(n)" class="p-3 hover:bg-gray-100 dark:hover:bg-[#1a3b4f] cursor-pointer border-b border-gray-100 dark:border-gray-700">
+                  <p class="font-semibold">{{ n.name }}</p>
+                  <p class="text-sm text-gray-500 truncate">{{ n.message }}</p>
+                  <p class="text-xs text-gray-400">{{ new Date(n.created_at).toLocaleString() }}</p>
+                </div>
+              </div>
+
+              <!-- View all link -->
+               <div class="p-2 border-t border-gray-200 dark:border-gray-700 text-center">
+                <router-link to="/admin/consultations" class="text-sm text-[#9A6829] hover:underline">
+                  View All Consultations
+                </router-link>
+               </div>
+             </div>
+          </div>
 
           <!-- DARK MODE -->
           <button
@@ -113,6 +195,11 @@ const logout = () => {
             <span v-if="isDark">🌙</span>
             <span v-else>☀️</span>
           </button>
+
+          <!-- REFRESH BUTTON -->
+           <button @click="triggerRefresh" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-700 hover:scale-110 transition">
+            🔄
+           </button>
 
           <!-- USER -->
           <div class="flex items-center gap-2">

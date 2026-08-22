@@ -1,17 +1,45 @@
 <script setup lang="ts">
+import { useInquiryStore } from '@/stores/inquiry'
 import { ref } from 'vue'
+
+const inquiryStore = useInquiryStore()
 
 const form = ref({
   name: '',
   email: '',
   phone: '',
-  message: ''
+  message: '',
 })
 
-const submitForm = () => {
-  console.log(form.value)
-  alert('Message sent successfully!')
+const loading = ref(false)
+const success = ref(false)
+const errorMessage = ref('')
+
+const submitForm = async () => {
+  loading.value = true
+  success.value = false
+  errorMessage.value = ''
+
+  const result = await inquiryStore.submitInquiry(form.value)
+
+  if (result.success) {
+    success.value = true
+    form.value = {
+      name: '',
+      email: '',
+      phone: '',
+      message: '',
+    }
+    setTimeout(() => {
+      success.value = false
+    }, 5000);
+  } else {
+    errorMessage.value = 'Failed to send message. Please try again later.'
+  }
+
+  loading.value = false
 }
+
 </script>
 
 <template>
@@ -78,10 +106,17 @@ const submitForm = () => {
 
             <button
               type="submit"
-              class="w-full bg-[#9A6829] text-white py-3 rounded-full font-semibold hover:bg-[#7c531f] transition"
+              class="w-full bg-[#9A6829] text-white py-3 rounded-full font-semibold hover:bg-[#7c531f] transition disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Send Message
+              {{ loading ? 'Sending...' : 'Send Message' }}
             </button>
+
+            <div v-if="success" class="bg-green-100 border border-green-200 text-green-700 p-4 rounded-xl mt-4 text-center">
+              ✓  Message sent successfully! We'll get back to you within 24 hours.
+            </div>
+            <div v-if="errorMessage" class="bg-red-100 border border-red-200 text-red-700 p-4 rounded-xl mt-4 text-center">
+              {{ errorMessage }}
+            </div>
 
           </form>
 

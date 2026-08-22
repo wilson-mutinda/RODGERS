@@ -6,7 +6,10 @@
 
         <!-- LOGO + ABOUT -->
         <div>
-          <img src="/rodgers-abdi-blue-bg.jpg" class="h-24 mb-4" />
+          <!-- <img src="/rodgers-abdi-blue-bg.jpg" class="h-24 mb-4" /> -->
+          <router-link to="/">
+            <img src="/rodgers-abdi-blue-bg.jpg" class="h-24 mb-4">
+          </router-link>
           <p class="text-sm leading-relaxed">
             Rodgers Abdi & Company Advocates is committed to delivering
             professional, reliable, and client-focused legal services across Kenya.
